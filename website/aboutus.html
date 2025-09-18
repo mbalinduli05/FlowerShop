@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Lowie Flower Boutique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #f8f1ff;
+            --secondary-color: #8D769A;
+            --accent-color: #46315C;
+            --text-color: #3b346c;
+            --special-tag: #BA96C1;
+            --announcement-color: #fff0f5;
+            --bottom-nav-height: 60px;
+            --white: #ffffff;
+            --gradient-start: #8D769A;
+            --gradient-end: #46315C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: var(--bottom-nav-height);
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background-color: var(--announcement-color);
+            color: var(--text-color);
+            padding: 0.1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .announcement-bar marquee {
+            font-size: 0.9rem;
+        }
+
+        /* Header with Navigation */
+        header {
+            padding: 1rem 2rem;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-item a:hover {
+            color: #cab1eb;
+            transform: translate(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            cursor: pointer;
+            display: none;
+        }
+        
+        .hamburger:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Banner styles */
+        .banner {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: var(--white);
+        }
+
+        .banner h2 {
+            font-size: 24px;
+        }
+
+        /* About page specific styles */
+        .about-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .about-container h1 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .about-container h2 {
+            color: var(--accent-color);
+            margin: 25px 0 15px;
+            font-size: 24px;
+        }
+
+        .about-container p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .catchy-phrase {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 25px 0;
+            padding: 15px;
+            background-color: rgba(186, 150, 193, 0.1);
+            border-left: 4px solid var(--special-tag);
+            border-radius: 4px;
+        }
+
+        .flower-types, .tips {
+            margin-bottom: 40px;
+        }
+
+        .flower-types ul, .tips ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .flower-types li, .tips li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .flower-types li:before, .tips li:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        .flower-types strong, .tips strong {
+            color: var(--accent-color);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-about h3, .footer-links h3, .footer-contact h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-about p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            border-radius: 30px;
+            padding: 12px 20px;
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+
+        .bottom-nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-nav-item.active {
+            color: white;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .bottom-nav-item:hover {
+            color: var(--accent-color);
+            background-color: rgba(78, 205, 196, 0.1);
+        }
+
+        .bottom-nav-item:hover i {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                right: 2rem;
+                background-color: white;
+                width: 200px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-item {
+                margin: 0;
+                padding: 0.8rem 1.5rem;
+                border-bottom: 1px solid var(--secondary-color);
+            }
+
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+            
+            .about-container {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .banner h2 {
+                font-size: 20px;
+            }
+            
+            /* For mobile devices, hide text and show only icons */
+            .bottom-nav-item span {
+                display: none;
+            }
+            
+            .bottom-nav-item i {
+                margin-bottom: 0;
+                font-size: 1.4rem;
+            }
+            
+            .bottom-nav {
+                padding: 15px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .banner h2 {
+                font-size: 18px;
+            }
+            
+            .catchy-phrase {
+                font-size: 20px;
+                padding: 10px;
+            }
+            
+            /* For very small screens, adjust the navigation */
+            .bottom-nav {
+                width: 95%;
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <marquee behavior="scroll" direction="left">🌷 20% OFF SALE COMING SOON - STAY TUNED! 🌷</marquee>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo"><i class="fas fa-flower-tulip"></i>LOWIE</div>
+            <nav class="navbar">
+                <button class="hamburger" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="home.php">Home</a></li>
+                    <li class="nav-item"><a href="#">Shop</a></li>
+                    <li class="nav-item"><a href="aboutus.html">About</a></li>
+                    <li class="nav-item"><a href="contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container">
+        <!-- Banner -->
+        <div class="banner">
+            <h2>Same day delivery Only on selected items before 2pm on weekdays!!!!</h2>
+        </div>
+        
+        <!-- About content -->
+        <div class="about-container">
+            <h1><strong> Your Luxury Floral Destination In Durban</strong></h1>
+            <p>Welcome to Lowie, Durban's premier Luxury online store for Exquisite flowers and gifting. From Stunning bouquets and floral sprays to carefully curated gifts.</p>
+
+            <p class="catchy-phrase">"Empowering Women, One bouquet at a Time"</p>
+            
+            <h2>Our Story</h2>
+            <p>At LOWIE Flower Boutique, We believe that flowers have the power to uplift and inspire. Our mission is to provide the most beautiful and fresh flowers to our customers, while promoting women's empowerment and supporting local communities...</p>
+            
+            <h2><strong>Flowers , Gifts and So Much More...</strong></h2>
+            <p>Located at 277 Hillcrest Road , Durban</p>
+            <p>-we take pride in creating exceptional floral arrangements , combining innovation , modren elegance and timeless design. Using only the freshest blooms, our expert florists are passionate about creating stunning designs that reflect both our love for thr craft and the tastes of our valued customers</p>
+
+            <h2> Types of Flowers</h2>
+            <div class="flower-types">
+                <ul>
+                    <li><strong>Roses</strong>: The ultimate symbol of love and apperication , roses come in a variety of colors and meanings. </li>
+                    <li><strong>Carnations</strong>:A long lasting and afforable option, Carnations are perfect for any occasion
+                    <li><strong>Lilies</strong>:With their elegant trumpet-shaped blooms, lilies are a popular choice for weddings and special events...
+                    <li><strong>Sunflowers</strong>:Brigthen up anyone's day with these vibrant flowers
+                    <li><strong>Tulips</strong>:Cup-shaped and colorufl, tulips are a classic springtime favourite
+                </ul>
+            </div>
+            
+            <h2>Tips for Fresh flowers</h2>
+            <div class="tips">
+                <ul>
+                    <li><strong>Trim the stems</strong>:Cutting about an inch off the stems at an angle helps to promote water uptake, and keep your flowers fresh</li>
+                    <li><strong>Change the water</strong>:Fresh water every 2-3 dayus helps to prevent batcteral growth</li>
+                    <li><strong>Avoid direct sunlight</strong>: While flowers love sunlights, direct sunlight can cause them to wilt and fade faster</li>
+                    <li><strong>Keep them cool</strong>:Most flowers prefer cooler temperatures, around 65-75'f to stay fresh</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Our Story</h3>
+                <p>Lowie was founded by four best friends who shared a passion for growing beautiful flowers. What began as a hobby in our backyards blossomed into a business built on love and care for nature's beauty. Each of our products reflects the dedication we put into cultivating the finest flowers.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@lowieflowers.com</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Lowie Flower Shop. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Floating Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="home.php" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Products</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fas fa-heart"></i>
+            <span>Wishlist</span>
+        </a>
+        <a href="userdash.php" class="bottom-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
